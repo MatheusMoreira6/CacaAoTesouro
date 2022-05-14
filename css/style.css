@@ -1,0 +1,118 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    background-color: #143D59;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#titulo {
+    margin-top: 60px;
+    margin-bottom: 80px;
+
+    color: #F4B41A;
+}
+
+#jogo {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 40px;
+
+    border: 4px solid;
+    border-radius: 50px;
+    border-color: #F4B41A;
+
+    background-color: #143D59;
+}
+
+#painel {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 20px;
+}
+
+#contador, #nivelDificuldade {
+    width: 320px;
+    height: 140px;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid;
+    border-radius: 15px;
+
+    background-color: #FFFFFF;
+}
+
+#nivelDificuldade {
+    margin-right: 80px;
+}
+
+#nivelDificuldade > p {
+    margin: 0;
+    padding: 0;
+
+    font-size: x-large;
+}
+
+#contador {
+    margin-left: 80px;
+}
+
+#contador > p {
+    margin: 0;
+    padding: 10px;
+
+    font-size: x-large !important;
+}
+
+#selectDificuldade {
+    width: 300px !important;
+
+    margin-top: 20px;
+}
+
+#bordaExterna {
+    border: 1px solid;
+}
+
+.linhas, .celulas {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.celulas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 55px !important;
+    height: 45px !important;
+
+    border: 1px solid;
+
+    background-color: #FFFFFF;
+}
+
+.celulas:hover {
+    background-color: #F4B41A;
+}
