@@ -7,6 +7,7 @@ $(function () {
     var quantidadeClick;
     var verificadorClick = new Array(celulas.length);
     var campoClick = document.getElementById("contagem");
+    var campoQuantidade = document.getElementById("quantidade");
 
     function preencherOuro(opcaoSelect) {
         //Resetar os campos.
@@ -37,6 +38,7 @@ $(function () {
             celulasSorteadas = new Array(25);
         }
         quantidadeOuro = celulasSorteadas.length;
+        campoQuantidade.innerHTML = celulasSorteadas.length;
 
         console.log(quantidadeOuro);
 
