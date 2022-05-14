@@ -2,12 +2,16 @@ $(function () {
     var celulas = document.getElementsByClassName("celulas");
     var celulasOuro = new Array(celulas.length);
 
+    var quantidadeOuro;
+    var OurosEncontrados;
     var quantidadeClick;
     var verificadorClick = new Array(celulas.length);
     var campoClick = document.getElementById("contagem");
 
     function preencherOuro(opcaoSelect) {
         //Resetar os campos.
+        quantidadeOuro = 0;
+        OurosEncontrados = 0;
         quantidadeClick = 0;
         campoClick.innerHTML = quantidadeClick;
 
@@ -32,6 +36,9 @@ $(function () {
         } else if (opcaoSelect == 3) {
             celulasSorteadas = new Array(25);
         }
+        quantidadeOuro = celulasSorteadas.length;
+
+        console.log(quantidadeOuro);
 
         //Seleciona quais campos irão ter o ouro.
         for (var i = 0; i < celulasSorteadas.length; i++) {
@@ -54,17 +61,26 @@ $(function () {
             $(celulas[i]).on("click", function (evento) {
                 $(this).off("click");
 
-                if (celulasOuro[evento.target.id] == 1) {
-                    this.innerHTML = '<img src="./imagens/bauTesouro.png" width="40px" alt="Ouro"></img>';
-                } else {
-                    this.innerHTML = '<img src="./imagens/xErro.png" width="25px" alt="Vazio"></img>';
-                }
-
                 if (verificadorClick[evento.target.id] == 0) {
+                    if (celulasOuro[evento.target.id] == 1) {
+                        this.innerHTML = '<img src="./imagens/bauTesouro.png" width="40px" alt="Ouro"></img>';
+
+                        OurosEncontrados++;
+                    } else {
+                        this.innerHTML = '<img src="./imagens/xErro.png" width="25px" alt="Vazio"></img>';
+                    }
+
                     quantidadeClick++;
                     campoClick.innerHTML = quantidadeClick;
-                }
 
+                    if (OurosEncontrados == quantidadeOuro) {
+                        alert("Todos os Tesouros foram Encontrados!");
+
+                        for (var i = 0; i < celulas.length; i++) {
+                            $(celulas[i]).off("click");
+                        }
+                    }
+                }
                 verificadorClick[evento.target.id] = 1;
             });
         }
