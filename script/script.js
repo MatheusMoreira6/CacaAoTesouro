@@ -3,16 +3,15 @@ $(function () {
     var celulasOuro = new Array(celulas.length);
 
     var quantidadeOuro;
-    var ourosEncontrados;
+    var campoQuantidade = document.getElementById("quantidade");
+
     var quantidadeClick;
     var verificadorClick = new Array(celulas.length);
     var campoClick = document.getElementById("contagem");
-    var campoQuantidade = document.getElementById("quantidade");
 
     function preencherOuro(opcaoSelect) {
         //Resetar os campos.
         quantidadeOuro = 0;
-        ourosEncontrados = 0;
         quantidadeClick = 0;
         campoClick.innerHTML = quantidadeClick;
 
@@ -38,9 +37,7 @@ $(function () {
             celulasSorteadas = new Array(25);
         }
         quantidadeOuro = celulasSorteadas.length;
-        campoQuantidade.innerHTML = celulasSorteadas.length;
-
-        console.log(quantidadeOuro);
+        campoQuantidade.innerHTML = quantidadeOuro;
 
         //Seleciona quais campos irão ter o ouro.
         for (var i = 0; i < celulasSorteadas.length; i++) {
@@ -67,7 +64,8 @@ $(function () {
                     if (celulasOuro[evento.target.id] == 1) {
                         this.innerHTML = '<img src="./imagens/bauTesouro.png" width="40px" alt="Ouro"></img>';
 
-                        ourosEncontrados++;
+                        quantidadeOuro--;
+                        campoQuantidade.innerHTML = quantidadeOuro;
                     } else {
                         this.innerHTML = '<img src="./imagens/xErro.png" width="25px" alt="Vazio"></img>';
                     }
@@ -75,7 +73,7 @@ $(function () {
                     quantidadeClick++;
                     campoClick.innerHTML = quantidadeClick;
 
-                    if (ourosEncontrados == quantidadeOuro) {
+                    if (quantidadeOuro == 0) {
                         alert("Todos os Tesouros foram Encontrados!");
 
                         for (var i = 0; i < celulas.length; i++) {
